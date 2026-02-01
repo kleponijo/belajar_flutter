@@ -21,8 +21,9 @@ class MyHomePage extends StatelessWidget {
         title: Text('Dissmisible'),
       ),
       body: Center(
-        child: Text('kurang tau'),
+        child: Text('kurang tau mau ngapain'),
       ),
     );
   }
 }
+
