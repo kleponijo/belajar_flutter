@@ -1,4 +1,3 @@
-// Belajar Widget dasar
 import 'package:flutter/material.dart';
 
 void main() {
@@ -6,16 +5,31 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  final List<Color> myColor = [
+    Colors.red,
+    Colors.green,
+    Colors.blue,
+    Colors.amber,
+  ];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text("My Apps"),
+          backgroundColor: Colors.blue,
+          title: Text("List View", style: TextStyle(color: Colors.white)),
+          centerTitle: true,
         ),
-        body: Center(
-          child: Text("Body"),
+        body: ListView.separated(
+          separatorBuilder: (context, index) {
+            return Divider(color: Colors.black);
+          },
+          itemCount: myColor.length,
+          itemBuilder: (context, index) {
+            return Text("Hallo");
+          },
         ),
       ),
     );
