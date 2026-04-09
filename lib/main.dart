@@ -1,20 +1,35 @@
-import 'package:belajar_flutter/src/pokemon.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as myhttp;
 
 void main() {
-  runApp(MyAppNew());
+  runApp(MyApp());
 }
 
-class MyAppNew extends StatelessWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "My Flutter ",
-      home: Pokemon(),
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return MaterialApp(home: HomePage(), debugShowCheckedModeBanner: false);
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("HTTP")),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("data", style: TextStyle(fontSize: 20)),
+            SizedBox(height: 15),
+            ElevatedButton(onPressed: () {myhttp.get(url)}, child: Text("Get Data")),
+          ],
+        ),
       ),
     );
   }
